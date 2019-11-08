@@ -2,12 +2,10 @@ var number = ["0123456789"];
 var uCase = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"]; 
 var lCase = ["abcdefghijklmnopqrstuvwxyz"];
 var sChar = ["!#$%&'()*+,-./:;<=>?@[]^_`{|}~"];
-
-var userPwd = [""];
 var userPwdOptions = [""];
-debugger;;
 
 function getUserPwdOptions(){
+    var userPwd = [""];
     var pLengthPrompt = prompt("How long would you like your password to be?");
     var pLength = parseInt(pLengthPrompt);
     while (pLength < 8 || pLength > 128 || isNaN(pLength)) {
@@ -36,5 +34,13 @@ function getUserPwdOptions(){
     for (i = 0; i < pLength; i++){
         userPwd += userPwdOptions[Math.floor(Math.random() * userPwdOptions.length)]
     };
-    console.log(userPwd);   
+    console.log(userPwd);
+    document.getElementById("password").value = userPwd;
 }
+
+function copyToClipboard(){
+    let copyText = document.getElementById("password");
+    copyText.select();
+    document.execCommand("copy");
+    alert("Password copied to your clipboard."); 
+}; 
