@@ -18,6 +18,7 @@ function getUserPwdOptions(){
     var pSChar = confirm("Would you like to use special characters in your password?");
     if (pNumbers !== true && pUCase !== true && pLCase !== true && pSChar !== true){
         alert("Sorry, you have to select at least one option in order to generate a password. Try again.");
+        return;
         }
     if (pNumbers === true){
             userPwdOptions = userPwdOptions + number;
